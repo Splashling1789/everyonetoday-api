@@ -1,0 +1,13 @@
+version: '3'
+services:
+  everyonetoday-db:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=ET23
+      - POSTGRES_USER=jovi
+      - POSTGRES_DB=quotes
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
