@@ -1,18 +1,15 @@
 mod connection_manager;
-
+mod routes;
 #[macro_use] extern crate rocket;
 
 use std::env;
 use std::error::Error;
 use std::ops::{Deref, DerefMut};
 use std::sync::Mutex;
-use rocket::State;
-use postgres::{Client};
 use crate::connection_manager::get_envs;
+use routes::*;
 
-struct AppState {
-    db_client: Mutex<Result<Client, postgres::Error>>,
-}
+
 
 
 struct quote_post {
@@ -20,19 +17,7 @@ struct quote_post {
     sign:String,
 }
 
-#[get("/health")]
-fn health(state: &State<AppState>) -> String {
-    let mut db_status = String::default();
-    match state.db_client.lock().unwrap().deref() {
-        Ok(_) => {
-            db_status = format!("db_connection: \"OK\"");
-        }
-        Err(e) => {
-            db_status = format!("db_connection: \"{}\"", e);
-        }
-    }
-    format!("status: \"OK\"\n{db_status}")
-}
+
 
 #[launch]
 fn rocket() -> _ {
