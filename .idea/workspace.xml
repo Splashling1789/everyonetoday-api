@@ -7,17 +7,14 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53101d3f-a87f-49b3-a692-e9ec5c0203c8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/everyonetoday-api.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sql/init-tables.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+    <list default="true" id="53101d3f-a87f-49b3-a692-e9ec5c0203c8" name="Changes" comment="Database connection and status">
+      <change afterPath="$PROJECT_DIR$/src/connection_manager.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/init-tables.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/init-tables.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +24,13 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Rust File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -34,6 +38,10 @@
     <option name="directoryName" value="1ukjkosq" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 3
+}]]></component>
   <component name="ProjectId" id="2UFlsQAeMk0SMXKW9OMTJoPlzfj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -45,12 +53,16 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/javie/IdeaProjects/everyonetoday-api",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
+    "show.migrate.to.gradle.popup": "false",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -59,6 +71,11 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\javie\IdeaProjects\everyonetoday-api" />
+    </key>
+  </component>
   <component name="RunManager" selected="Cargo.Run">
     <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="command" value="run --package everyonetoday-api --bin everyonetoday-api" />
@@ -78,7 +95,9 @@
       </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
@@ -107,10 +126,16 @@
       <option name="presentableId" value="Default" />
       <updated>1692543419439</updated>
       <workItem from="1692543420892" duration="5044000" />
+      <workItem from="1692641112441" duration="636000" />
+      <workItem from="1692700557579" duration="4306000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Database connection and status" />
+    <option name="LAST_COMMIT_MESSAGE" value="Database connection and status" />
   </component>
 </project>
