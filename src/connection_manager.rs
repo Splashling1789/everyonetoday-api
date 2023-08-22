@@ -1,3 +1,5 @@
+//!This module manages the connection to the postgres database
+
 use postgres::{Client, NoTls};
 use std::env::VarError;
 use std::env::var;
@@ -14,6 +16,7 @@ const VAR_HOST:&str = "DB_HOST";
 const VAR_NAME:&str = "DB_NAME";
 
 fn get_variable_name_by_index(index:&usize) -> &str {
+    //!It obtains the variable name given an index and following an order.
     match index {
         0 => {VAR_USER}
         1 => {VAR_PASSWORD}
@@ -36,11 +39,13 @@ pub fn get_envs(path:&str) -> (Result<String, VarError>, Result<String, VarError
 }
 
 fn get_connection (user: String, password: String, host:String, name: String) -> Result<Client, postgres::Error> {
+    //!It connects to a database given user, password, host and database name
     let url = format!("postgres://{user}:{password}@{host}/{name}");
     return Client::connect(url.as_str(), NoTls);
 }
 
 pub fn connect(data: (Result<String, VarError>, Result<String, VarError>, Result<String, VarError>, Result<String, VarError>)) -> Result<Client, postgres::Error> {
+    //!It returns the client of a postgres database or an error given the tuple from the function get_envs
     let mut credentials: Vec<String> = vec![];
     for (i, d) in [data.0, data.1, data.2, data.3].iter().enumerate() {
         match d {
