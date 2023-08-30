@@ -7,18 +7,15 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0190f7ed-4a99-4ccb-8fad-cc8750996ed4" name="Changes" comment="">
+    <list default="true" id="0190f7ed-4a99-4ccb-8fad-cc8750996ed4" name="Changes" comment="Added some environment variables">
       <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/everyonetoday-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/everyonetoday-api.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/connection_manager.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/connection_manager.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -45,6 +42,11 @@
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
     "show.migrate.to.gradle.popup": "false",
     "vue.rearranger.settings.migration": "true"
@@ -61,8 +63,33 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1693404234712</updated>
-      <workItem from="1693404240787" duration="86000" />
+      <workItem from="1693404240787" duration="474000" />
     </task>
+    <task id="LOCAL-00001" summary="Added some environment variables">
+      <option name="closed" value="true" />
+      <created>1693404373548</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1693404373548</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added some environment variables">
+      <option name="closed" value="true" />
+      <created>1693404583992</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1693404583992</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added some environment variables">
+      <option name="closed" value="true" />
+      <created>1693404667390</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1693404667390</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -80,6 +107,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Added some environment variables" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some environment variables" />
   </component>
 </project>
