@@ -7,41 +7,32 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53101d3f-a87f-49b3-a692-e9ec5c0203c8" name="Changes" comment="Database connections redone.">
+    <list default="true" id="0190f7ed-4a99-4ccb-8fad-cc8750996ed4" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/everyonetoday-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/everyonetoday-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/connection_manager.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/connection_manager.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
-    <execution />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Rust File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MacroExpansionManager">
-    <option name="directoryName" value="1ukjkosq" />
+    <option name="directoryName" value="xpz03yew" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 3
-}</component>
-  <component name="ProjectId" id="2UFlsQAeMk0SMXKW9OMTJoPlzfj" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": -1
+}]]></component>
+  <component name="ProjectId" id="2UhufALJgUP5UcbwUJZJ3V3URS0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -53,126 +44,25 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "rocket__db__pools",
-    "last_opened_file_path": "C:/Users/javie/IdeaProjects/everyonetoday-api",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
+    "git-widget-placeholder": "master",
     "org.rust.cargo.project.model.PROJECT_DISCOVERY": "true",
     "show.migrate.to.gradle.popup": "false",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
-    ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\javie\IdeaProjects\everyonetoday-api" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Cargo.Run">
-    <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
-      <option name="command" value="run --package everyonetoday-api --bin everyonetoday-api" />
-      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
-      <option name="emulateTerminal" value="false" />
-      <option name="channel" value="DEFAULT" />
-      <option name="requiredFeatures" value="true" />
-      <option name="allFeatures" value="false" />
-      <option name="withSudo" value="false" />
-      <option name="buildTarget" value="REMOTE" />
-      <option name="backtrace" value="SHORT" />
-      <envs />
-      <option name="isRedirectInput" value="false" />
-      <option name="redirectInputPath" value="" />
-      <method v="2">
-        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml">
-        <settings />
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="docker-compose.yaml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-  </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="53101d3f-a87f-49b3-a692-e9ec5c0203c8" name="Changes" comment="" />
-      <created>1692543419439</created>
+      <changelist id="0190f7ed-4a99-4ccb-8fad-cc8750996ed4" name="Changes" comment="" />
+      <created>1693404234712</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1692543419439</updated>
-      <workItem from="1692543420892" duration="5044000" />
-      <workItem from="1692641112441" duration="636000" />
-      <workItem from="1692700557579" duration="6003000" />
-      <workItem from="1693393330938" duration="4547000" />
+      <updated>1693404234712</updated>
+      <workItem from="1693404240787" duration="86000" />
     </task>
-    <task id="LOCAL-00001" summary="Database connection and status">
-      <option name="closed" value="true" />
-      <created>1692704938865</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1692704938865</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Changed date to timestamp in the database">
-      <option name="closed" value="true" />
-      <created>1692704975037</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1692704975037</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Changed timestamp to timestamptz in the database">
-      <option name="closed" value="true" />
-      <created>1692712550277</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1692712550277</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Comments made in connection_manager.rs">
-      <option name="closed" value="true" />
-      <created>1692712841098</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1692712841098</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Routes separated into modules">
-      <option name="closed" value="true" />
-      <created>1692713680291</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1692713680291</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Database connections redone.">
-      <option name="closed" value="true" />
-      <created>1693402057743</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1693402057743</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,12 +80,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Database connection and status" />
-    <MESSAGE value="Changed date to timestamp in the database" />
-    <MESSAGE value="Changed timestamp to timestamptz in the database" />
-    <MESSAGE value="Comments made in connection_manager.rs" />
-    <MESSAGE value="Routes separated into modules" />
-    <MESSAGE value="Database connections redone." />
-    <option name="LAST_COMMIT_MESSAGE" value="Database connections redone." />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
