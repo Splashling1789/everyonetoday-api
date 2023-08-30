@@ -1,7 +1,4 @@
 use std::ops::Deref;
-use rocket::State;
-use std::sync::Mutex;
-use postgres::{Client};
 use rocket_db_pools::{Database, sqlx};
 use rocket_db_pools::sqlx::Connection;
 use rocket::serde::json::{json, Value};
