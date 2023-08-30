@@ -5,15 +5,22 @@ use std::env::var;
 use dotenv::{from_path};
 use rocket_db_pools::{Pool, sqlx};
 
-///Specifies the variable name for the database's user
+///Specifies the environment variable name for the database's user.
 const VAR_USER:&str = "DB_USER";
-///Specifies the variable name for the database's password
+///Specifies the environment variable name for the database's password.
 const VAR_PASSWORD:&str = "DB_PASSWORD";
-///Specifies the variable name for the database's host
+///Specifies the environment variable name for the database's host.
 const VAR_HOST:&str = "DB_HOST";
-///Specifies the variable name for the database's name
+///Specifies the environment variable name for the database's name.
 const VAR_NAME:&str = "DB_NAME";
-
+///Specifies the environment variable name for the maximum number of active connections for the database.
+const VAR_MAX_CONNECTIONS:&str = "DB_MAX_CONNECTIONS";
+///Specifies the environment variable name for the timeout seconds for the requests.
+const VAR_CONNECTION_TIMEOUT:&str = "DB_CONNECTION_TIMEOUT";
+///Specifies the environment variable name for the idle timeout on database sessions.
+const VAR_IDLE_TIMEOUT:&str = "DB_IDLE_TIMEOUT";
+///Specifies the environment variable name for the minimum amount of connections to maintain at all times.
+const VAR_MIN_CONNECTIONS:&str = "DB_MIN_CONNECTIONS";
 fn get_variable_name_by_index(index:&usize) -> &str {
     //!It obtains the variable name given an index and following an order.
     match index {
