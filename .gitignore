@@ -1,6 +1,5 @@
 /target
-/.idea
-.idea/workspace.xml
+.idea/*
 .env
 Cargo.lock
 everyonetoday-api.iml
