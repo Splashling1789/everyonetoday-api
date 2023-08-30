@@ -1,10 +1,9 @@
 //!This module manages the connection to the postgres database
 
-use postgres::{Client, NoTls};
 use std::env::VarError;
 use std::env::var;
 use dotenv::{from_path};
-
+use rocket_db_pools::{Pool, sqlx};
 
 ///Specifies the variable name for the database's user
 const VAR_USER:&str = "DB_USER";
@@ -38,13 +37,18 @@ pub fn get_envs(path:&str) -> (Result<String, VarError>, Result<String, VarError
     }
 }
 
-fn get_connection (user: String, password: String, host:String, name: String) -> Result<Client, postgres::Error> {
+fn get_connection (user: String, password: String, host:String, name: String) -> rocket_db_pools::Config {
     //!It connects to a database given user, password, host and database name
-    let url = format!("postgres://{user}:{password}@{host}/{name}");
-    return Client::connect(url.as_str(), NoTls);
+    rocket_db_pools::Config {
+        max_connections: 24,
+        url: format!("postgres://{user}:{password}@{host}/{name}"),
+        connect_timeout: 5,
+        min_connections: None,
+        idle_timeout: None
+    }
 }
 
-pub fn connect(data: (Result<String, VarError>, Result<String, VarError>, Result<String, VarError>, Result<String, VarError>)) -> Result<Client, postgres::Error> {
+pub fn connect(data: (Result<String, VarError>, Result<String, VarError>, Result<String, VarError>, Result<String, VarError>)) -> rocket_db_pools::Config {
     //!It returns the client of a postgres database or an error given the tuple from the function get_envs
     let mut credentials: Vec<String> = vec![];
     for (i, d) in [data.0, data.1, data.2, data.3].iter().enumerate() {

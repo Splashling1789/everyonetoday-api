@@ -2,17 +2,16 @@ use std::ops::Deref;
 use rocket::State;
 use std::sync::Mutex;
 use postgres::{Client};
+use rocket_db_pools::{Connection, Database, sqlx};
 
-
-pub struct AppState {
-    pub db_client: Mutex<Result<Client, postgres::Error>>,
-}
-
+#[derive(Database)]
+#[database("main_db")]
+pub struct MainDb(sqlx::PgPool);
 
 #[get("/health")]
-pub fn health(state: &State<AppState>) -> String {
+pub async fn health(mut db: Connection<MainDb>) -> String {
     let mut db_status = String::default();
-    match state.db_client.lock().unwrap().deref() {
+    match sqlx::query("SELECT * FROM quotes LIMIT 1;").fetch_one(&mut *db).await {
         Ok(_) => {
             db_status = format!("db_connection: \"OK\"");
         }
