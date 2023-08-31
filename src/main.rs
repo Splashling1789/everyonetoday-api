@@ -5,7 +5,6 @@ extern crate rocket;
 
 use rocket_db_pools::Database;
 use routes::*;
-use std::env;
 
 struct quote_post {
     quote: String,
