@@ -32,6 +32,21 @@ const DEFAULT_MIN_CONNECTIONS: Option<u32> = Some(5);
 ///Specifies the path for the environment variables file
 pub const ENV_PATH: &str = ".env";
 
+///Provides the components of the postgres url
+struct UrlComponents {
+    user: String,
+    password: String,
+    host: String,
+    db_name:String,
+}
+impl UrlComponents {
+    fn get_url(&self) -> String {
+        //!Gets the postgres url based on the components of the struct
+        format!("postgres://{}:{}@{}/{}", self.user, self.password, self.host, self.db_name)
+    }
+}
+
+
 fn get_variable_name_by_index(index: &usize) -> &str {
     //!It obtains the variable name given an index and following an order.
     match index {
