@@ -7,9 +7,9 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0190f7ed-4a99-4ccb-8fad-cc8750996ed4" name="Changes" comment="Added a struct for the url components">
+    <list default="true" id="0190f7ed-4a99-4ccb-8fad-cc8750996ed4" name="Changes" comment="connection_manager.rs reworked">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/connection_manager.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/connection_manager.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/mod.rs" afterDir="false" />
     </list>
@@ -29,12 +29,12 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2UhufALJgUP5UcbwUJZJ3V3URS0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -58,21 +58,10 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="QodanaHighlightedReportService">
-    <option name="localRunNotPublishedPersistedInfo">
-      <LocalReportPersistedInfo>
-        <option name="path" value="C:\Users\javie\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
-        <option name="reportGuid" value="db5a25f5-5de5-4cb3-a2db-30d716b94d3c" />
-        <option name="reportName" value="everyonetoday-api/qodana/2023-08-30" />
-      </LocalReportPersistedInfo>
-    </option>
-  </component>
-  <component name="QodanaIsSelectedPersistenceService">
-    <option name="selectedOrLoading" value="true" />
-  </component>
   <component name="QodanaReportsService">
     <option name="descriptions">
       <ReportDescription localRun="true" path="C:\Users\javie\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="db5a25f5-5de5-4cb3-a2db-30d716b94d3c" reportId="everyonetoday-api/qodana/2023-08-30" />
+      <ReportDescription localRun="true" path="C:\Users\javie\AppData\Local\Temp\qodana_output1\qodana.sarif.json" reportGuid="0e04b273-2879-4c8e-859e-ff71f49a63d2" reportId="everyonetoday-api/qodana/2023-08-31" />
     </option>
   </component>
   <component name="RunManager">
@@ -106,7 +95,8 @@
       <option name="presentableId" value="Default" />
       <updated>1693404234712</updated>
       <workItem from="1693404240787" duration="5021000" />
-      <workItem from="1693477332347" duration="3894000" />
+      <workItem from="1693477332347" duration="4324000" />
+      <workItem from="1693491605828" duration="1927000" />
     </task>
     <task id="LOCAL-00001" summary="Added some environment variables">
       <option name="closed" value="true" />
@@ -172,7 +162,23 @@
       <option name="project" value="LOCAL" />
       <updated>1693479873628</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="connection_manager.rs reworked">
+      <option name="closed" value="true" />
+      <created>1693481537669</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1693481537669</updated>
+    </task>
+    <task id="LOCAL-00010" summary="connection_manager.rs reworked">
+      <option name="closed" value="true" />
+      <created>1693481562589</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1693481562589</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +204,7 @@
     <MESSAGE value="Created a structure for json responses" />
     <MESSAGE value="Added default config variables" />
     <MESSAGE value="Added a struct for the url components" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a struct for the url components" />
+    <MESSAGE value="connection_manager.rs reworked" />
+    <option name="LAST_COMMIT_MESSAGE" value="connection_manager.rs reworked" />
   </component>
 </project>
