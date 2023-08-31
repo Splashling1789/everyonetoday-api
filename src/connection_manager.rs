@@ -14,12 +14,20 @@ const VAR_HOST: &str = "DB_HOST";
 const VAR_NAME: &str = "DB_NAME";
 ///Specifies the environment variable name for the maximum number of active connections for the database.
 const VAR_MAX_CONNECTIONS: &str = "DB_MAX_CONNECTIONS";
+///Default max connections in case it is not specified.
+const DEFAULT_MAX_CONNECTIONS: usize = 512;
 ///Specifies the environment variable name for the timeout seconds for the requests.
 const VAR_CONNECTION_TIMEOUT: &str = "DB_CONNECTION_TIMEOUT";
+///Default connection timeout in case it is not specified.
+const DEFAULT_CONNECTION_TIMEOUT: u64 = 24;
 ///Specifies the environment variable name for the idle timeout on database sessions.
 const VAR_IDLE_TIMEOUT: &str = "DB_IDLE_TIMEOUT";
+///Default idle timeout in case it is not specified
+const DEFAULT_IDLE_TIMEOUT: Option<u64> = Some(10);
 ///Specifies the environment variable name for the minimum amount of connections to maintain at all times.
 const VAR_MIN_CONNECTIONS: &str = "DB_MIN_CONNECTIONS";
+///Default min connections in case it is not specified
+const DEFAULT_MIN_CONNECTIONS: Option<u32> = Some(5);
 
 ///Specifies the path for the environment variables file
 pub const ENV_PATH: &str = ".env";

@@ -7,9 +7,8 @@
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0190f7ed-4a99-4ccb-8fad-cc8750996ed4" name="Changes" comment="Code cleaned and formatted with rustfmt">
+    <list default="true" id="0190f7ed-4a99-4ccb-8fad-cc8750996ed4" name="Changes" comment="Created a structure for json responses">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/mod.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,12 +27,12 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: -1
-}</component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 4
+}]]></component>
   <component name="ProjectId" id="2UhufALJgUP5UcbwUJZJ3V3URS0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -74,6 +73,25 @@
       <ReportDescription localRun="true" path="C:\Users\javie\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="db5a25f5-5de5-4cb3-a2db-30d716b94d3c" reportId="everyonetoday-api/qodana/2023-08-30" />
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="Run" type="CargoCommandRunConfiguration" factoryName="Cargo Command" nameIsGenerated="true">
+      <option name="command" value="run" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <option name="emulateTerminal" value="false" />
+      <option name="channel" value="DEFAULT" />
+      <option name="requiredFeatures" value="true" />
+      <option name="allFeatures" value="false" />
+      <option name="withSudo" value="false" />
+      <option name="buildTarget" value="REMOTE" />
+      <option name="backtrace" value="SHORT" />
+      <envs />
+      <option name="isRedirectInput" value="false" />
+      <option name="redirectInputPath" value="" />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$USER_HOME$/.cargo/bin" />
   </component>
@@ -85,7 +103,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1693404234712</updated>
-      <workItem from="1693404240787" duration="4369000" />
+      <workItem from="1693404240787" duration="5021000" />
+      <workItem from="1693477332347" duration="864000" />
     </task>
     <task id="LOCAL-00001" summary="Added some environment variables">
       <option name="closed" value="true" />
@@ -127,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693413878557</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Removed postgres from Cargo.toml">
+      <option name="closed" value="true" />
+      <created>1693423096554</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1693423096554</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +176,8 @@
     <MESSAGE value="Added README.md" />
     <MESSAGE value="Added an ENV_PATH variable" />
     <MESSAGE value="Code cleaned and formatted with rustfmt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code cleaned and formatted with rustfmt" />
+    <MESSAGE value="Removed postgres from Cargo.toml" />
+    <MESSAGE value="Created a structure for json responses" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created a structure for json responses" />
   </component>
 </project>
