@@ -37,15 +37,17 @@ struct UrlComponents {
     user: String,
     password: String,
     host: String,
-    db_name:String,
+    db_name: String,
 }
 impl UrlComponents {
     fn get_url(&self) -> String {
         //!Gets the postgres url based on the components of the struct
-        format!("postgres://{}:{}@{}/{}", self.user, self.password, self.host, self.db_name)
+        format!(
+            "postgres://{}:{}@{}/{}",
+            self.user, self.password, self.host, self.db_name
+        )
     }
 }
-
 
 fn get_variable_name_by_index(index: &usize) -> &str {
     //!It obtains the variable name given an index and following an order.
@@ -57,7 +59,7 @@ fn get_variable_name_by_index(index: &usize) -> &str {
         _ => "NONE",
     }
 }
-pub fn get_url_envs(
+fn get_url_envs(
     path: &str,
 ) -> (
     Result<String, VarError>,
@@ -87,33 +89,20 @@ pub fn get_url_envs(
     }
 }
 
-fn get_connection_config(
-    user: String,
-    password: String,
-    host: String,
-    name: String,
-) -> rocket_db_pools::Config {
-    //!It builds the configuration for the database connection
-    rocket_db_pools::Config {
-        max_connections: 24,
-        url: format!("postgres://{user}:{password}@{host}/{name}"),
-        connect_timeout: 5,
-        min_connections: None,
-        idle_timeout: None,
-    }
-}
-
-pub fn connect(
-    data: (
+fn build_url(
+    components: (
         Result<String, VarError>,
         Result<String, VarError>,
         Result<String, VarError>,
         Result<String, VarError>,
     ),
-) -> rocket_db_pools::Config {
-    //!It returns the client of a postgres database or an error given the tuple from the function get_envs
+) -> UrlComponents {
+    //!It creates a secure UrlComponent given the results of the four environment variables that regards the url
     let mut credentials: Vec<String> = vec![];
-    for (i, d) in [data.0, data.1, data.2, data.3].iter().enumerate() {
+    for (i, d) in [components.0, components.1, components.2, components.3]
+        .iter()
+        .enumerate()
+    {
         match d {
             Ok(c) => credentials.push(c.to_string()),
             Err(e) => {
@@ -125,10 +114,48 @@ pub fn connect(
             }
         }
     }
-    get_connection_config(
-        credentials.get(0).unwrap().to_string(),
-        credentials.get(1).unwrap().to_string(),
-        credentials.get(2).unwrap().to_string(),
-        credentials.get(3).unwrap().to_string(),
-    )
+    UrlComponents {
+        user: credentials.get(0).unwrap().to_string(),
+        password: credentials.get(1).unwrap().to_string(),
+        host: credentials.get(2).unwrap().to_string(),
+        db_name: credentials.get(3).unwrap().to_string(),
+    }
+}
+pub fn get_connection_config() -> rocket_db_pools::Config {
+    //!It builds the configuration for the database connection
+    let max_connections = match var(VAR_MAX_CONNECTIONS) {
+        Ok(v) => match v.parse::<usize>() {
+            Ok(r) => r,
+            Err(_) => DEFAULT_MAX_CONNECTIONS,
+        },
+        Err(_) => DEFAULT_MAX_CONNECTIONS,
+    };
+    let connect_timeout = match var(VAR_CONNECTION_TIMEOUT) {
+        Ok(v) => match v.parse::<u64>() {
+            Ok(r) => r,
+            Err(_) => DEFAULT_CONNECTION_TIMEOUT,
+        },
+        Err(_) => DEFAULT_CONNECTION_TIMEOUT,
+    };
+    let min_connections = match var(VAR_MIN_CONNECTIONS) {
+        Ok(v) => match v.parse::<u32>() {
+            Ok(r) => Some(r),
+            Err(_) => DEFAULT_MIN_CONNECTIONS,
+        },
+        Err(_) => DEFAULT_MIN_CONNECTIONS,
+    };
+    let idle_timeout = match var(VAR_IDLE_TIMEOUT) {
+        Ok(v) => match v.parse::<u64>() {
+            Ok(r) => Some(r),
+            Err(_) => DEFAULT_IDLE_TIMEOUT,
+        },
+        Err(_) => DEFAULT_IDLE_TIMEOUT,
+    };
+    rocket_db_pools::Config {
+        max_connections: max_connections,
+        url: build_url(get_url_envs(ENV_PATH)).get_url(),
+        connect_timeout: connect_timeout,
+        min_connections: min_connections,
+        idle_timeout: idle_timeout,
+    }
 }
