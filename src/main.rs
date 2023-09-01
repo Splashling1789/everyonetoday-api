@@ -1,3 +1,6 @@
+//# Everyone Today: A wall for everyone to leave some words anonymously
+pub const API_VERSION:&str = "development";
+
 mod connection_manager;
 mod routes;
 #[macro_use]
@@ -17,5 +20,5 @@ fn rocket() -> _ {
     let figment = rocket::Config::figment().merge(("databases.main_db", conn));
     rocket::custom(figment)
         .attach(MainDb::init())
-        .mount("/", routes![health])
+        .mount("/", routes![get_health::health])
 }

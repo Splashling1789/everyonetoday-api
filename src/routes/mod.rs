@@ -1,5 +1,5 @@
-use rocket::serde::{json::{json, Value}, Serialize};
-use rocket::serde::json::Json;
+pub mod get_health;
+use rocket::serde::{Serialize};
 use rocket_db_pools::sqlx::Connection;
 use rocket_db_pools::{sqlx, Database};
 
@@ -9,8 +9,9 @@ pub struct MainDb(sqlx::PgPool);
 
 #[derive(Serialize)]
 #[serde(crate = "rocket::serde")]
-pub struct StatusResponse {
+pub struct HealthStatus {
     status: String,
+    version: &'static str,
     db_status: DbStatus,
 }
 #[derive(Serialize)]
@@ -18,24 +19,4 @@ pub struct StatusResponse {
 pub struct DbStatus {
     ping: String,
     version: Option<u32>,
-}
-
-#[get("/health")]
-pub async fn health(mut db: rocket_db_pools::Connection<MainDb>) -> Json<StatusResponse> {
-    let db_status = match db.ping().await {
-        Ok(()) => {
-            format!("OK")
-        }
-        Err(e) => {
-            format!("{e}")
-        }
-    };
-
-    Json(StatusResponse {
-        status: format!("OK"),
-        db_status: DbStatus {
-            ping: db_status,
-            version: db.server_version_num()
-        }
-    })
 }
