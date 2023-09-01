@@ -20,5 +20,5 @@ fn rocket() -> _ {
     let figment = rocket::Config::figment().merge(("databases.main_db", conn));
     rocket::custom(figment)
         .attach(MainDb::init())
-        .mount("/", routes![get_health::health])
+        .mount("/", routes![get_health::health]).register("/health", catchers![get_health::not_avaliable])
 }

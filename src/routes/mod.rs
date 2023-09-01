@@ -10,9 +10,10 @@ pub struct MainDb(sqlx::PgPool);
 #[derive(Serialize)]
 #[serde(crate = "rocket::serde")]
 pub struct HealthStatus {
-    status: String,
+    status: u16,
+    description: String,
     version: &'static str,
-    db_status: DbStatus,
+    db_status: Option<DbStatus>,
 }
 #[derive(Serialize)]
 #[serde(crate = "rocket::serde")]
