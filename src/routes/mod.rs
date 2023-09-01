@@ -1,5 +1,5 @@
 pub mod get_health;
-use rocket::serde::{Serialize};
+use rocket::serde::Serialize;
 use rocket_db_pools::sqlx::Connection;
 use rocket_db_pools::{sqlx, Database};
 
