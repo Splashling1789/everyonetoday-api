@@ -1,5 +1,6 @@
 pub mod get_health;
 pub mod get_posts;
+pub mod post_write;
 
 use chrono::Utc;
 use rocket::serde::{Deserialize, Serialize};
@@ -11,6 +12,13 @@ use sqlx::Decode;
 #[derive(Database)]
 #[database("main_db")]
 pub struct MainDb(PgPool);
+
+#[derive(Serialize)]
+#[serde(crate = "rocket::serde")]
+pub struct PostWrite_data {
+    quote: String,
+    sign: String,
+}
 
 #[derive(Decode, Deserialize, Serialize)]
 #[serde(crate = "rocket::serde")]
