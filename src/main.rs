@@ -6,13 +6,9 @@ mod routes;
 #[macro_use]
 extern crate rocket;
 
+use rocket_db_pools::sqlx::{Decode};
 use rocket_db_pools::Database;
 use routes::*;
-
-struct quote_post {
-    quote: String,
-    sign: String,
-}
 
 #[launch]
 fn rocket() -> _ {
@@ -20,6 +16,6 @@ fn rocket() -> _ {
     let figment = rocket::Config::figment().merge(("databases.main_db", conn));
     rocket::custom(figment)
         .attach(MainDb::init())
-        .mount("/", routes![get_health::health])
+        .mount("/", routes![get_health::health, get_posts::posts])
         .register("/health", catchers![get_health::not_avaliable])
 }
