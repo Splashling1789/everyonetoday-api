@@ -16,5 +16,5 @@ fn rocket() -> _ {
     rocket::custom(figment)
         .attach(MainDb::init())
         .mount("/", routes![get_health::health, get_posts::posts])
-        .register("/health", catchers![get_health::not_avaliable])
+        .register("/health", catchers![get_health::not_available])
 }

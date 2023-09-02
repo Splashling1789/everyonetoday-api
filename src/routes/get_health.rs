@@ -6,10 +6,13 @@ use rocket::Request;
 use rocket_db_pools::sqlx::Connection;
 
 #[catch(default)]
-pub fn not_avaliable(status: Status, _req: &Request) -> Json<GetHealth> {
+pub fn not_available(status: Status, _req: &Request) -> Json<GetHealth> {
+    //!Returns a ``GetHealth`` response in case there's an error.
     Json(GetHealth {
         status: status.code,
-        description: format!("Yet to implement"),
+        description: Status::from_code(status.code)
+            .unwrap_or(Status::Conflict)
+            .reason_lossy(),
         version: API_VERSION,
         db_status: None,
     })
@@ -17,6 +20,7 @@ pub fn not_avaliable(status: Status, _req: &Request) -> Json<GetHealth> {
 
 #[get("/health")]
 pub async fn health(mut db: rocket_db_pools::Connection<MainDb>) -> Json<GetHealth> {
+    //!Returns a ``GetHealth`` response, .
     let db_status = match db.ping().await {
         Ok(()) => {
             format!("OK")
@@ -28,7 +32,7 @@ pub async fn health(mut db: rocket_db_pools::Connection<MainDb>) -> Json<GetHeal
 
     Json(GetHealth {
         status: 200,
-        description: format!("Success"),
+        description: Status::from_code(200).unwrap().reason_lossy(),
         version: API_VERSION,
         db_status: Some(DbStatus {
             ping: db_status,

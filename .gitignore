@@ -2,4 +2,4 @@
 .env
 Cargo.lock
 everyonetoday-api.iml
-/.idea/
+.idea
