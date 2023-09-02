@@ -12,7 +12,7 @@ use sqlx::Decode;
 #[database("main_db")]
 pub struct MainDb(PgPool);
 
-#[derive(Debug, Decode, Deserialize, Serialize)]
+#[derive(Decode, Deserialize, Serialize)]
 #[serde(crate = "rocket::serde")]
 pub struct Post {
     sign: String,
