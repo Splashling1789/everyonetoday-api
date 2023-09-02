@@ -1,10 +1,8 @@
 pub mod get_health;
 pub mod get_posts;
 
-use chrono::{TimeZone, Utc};
+use chrono::{Utc};
 use rocket::serde::{Deserialize, Serialize};
-use rocket_db_pools::sqlx::{Connection, FromRow};
-use rocket_db_pools::sqlx::database::HasValueRef;
 use rocket_db_pools::Database;
 use sqlx::postgres::PgPool;
 use sqlx::types::chrono::DateTime;
@@ -15,7 +13,7 @@ pub struct MainDb(PgPool);
 
 #[derive(Debug, Decode, Deserialize, Serialize)]
 #[serde(crate = "rocket::serde")]
-struct Post {
+pub struct Post {
     sign: String,
     quote: String,
     date: DateTime<Utc>,
@@ -23,7 +21,7 @@ struct Post {
 
 #[derive(Serialize)]
 #[serde(crate = "rocket::serde")]
-struct GetPosts {
+pub struct GetPosts {
     list: Option<Vec<Post>>,
 }
 

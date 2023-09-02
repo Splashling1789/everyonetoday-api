@@ -6,7 +6,7 @@ use rocket_db_pools::Connection;
 
 const QUERY_GET_POSTS: &str = "SELECT * FROM quotes;";
 #[get("/posts")]
-pub async fn posts(mut db: Connection<MainDb>) -> Json<GetPosts> {
+pub async fn posts(db: Connection<MainDb>) -> Json<GetPosts> {
     Json(GetPosts {
         list: query_exe(db).await,
     })
@@ -25,6 +25,6 @@ async fn query_exe(mut conn: Connection<MainDb>) -> Option<Vec<Post>> {
             }
             Some(result)
         }
-        Err(e) => None,
+        Err(_) => None,
     }
 }

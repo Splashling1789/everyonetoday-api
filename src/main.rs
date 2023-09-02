@@ -6,7 +6,6 @@ mod routes;
 #[macro_use]
 extern crate rocket;
 
-use rocket_db_pools::sqlx::{Decode};
 use rocket_db_pools::Database;
 use routes::*;
 

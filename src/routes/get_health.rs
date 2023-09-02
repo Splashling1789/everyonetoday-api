@@ -6,7 +6,7 @@ use rocket::Request;
 use rocket_db_pools::sqlx::Connection;
 
 #[catch(default)]
-pub fn not_avaliable(status: Status, req: &Request) -> Json<GetHealth> {
+pub fn not_avaliable(status: Status, _req: &Request) -> Json<GetHealth> {
     Json(GetHealth {
         status: status.code,
         description: format!("Yet to implement"),
