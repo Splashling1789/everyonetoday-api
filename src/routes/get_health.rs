@@ -1,9 +1,26 @@
-use crate::routes::{DbStatus, GetHealth, MainDb};
+use crate::routes::MainDb;
 use crate::API_VERSION;
 use rocket::http::Status;
 use rocket::serde::json::Json;
+use rocket::serde::Serialize;
 use rocket::Request;
 use rocket_db_pools::sqlx::Connection;
+
+#[derive(Serialize)]
+#[serde(crate = "rocket::serde")]
+pub struct GetHealth {
+    status: u16,
+    description: &'static str,
+    version: &'static str,
+    db_status: Option<DbStatus>,
+}
+
+#[derive(Serialize)]
+#[serde(crate = "rocket::serde")]
+struct DbStatus {
+    ping: String,
+    version: Option<u32>,
+}
 
 #[catch(default)]
 pub fn not_available(status: Status, _req: &Request) -> Json<GetHealth> {

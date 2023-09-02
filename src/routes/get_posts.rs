@@ -1,10 +1,26 @@
-use crate::routes::{GetPosts, MainDb, Post};
-use chrono::{DateTime, Utc};
+use crate::routes::MainDb;
+use chrono::{DateTime, Local, Utc};
 use rocket::serde::json::Json;
+use rocket::serde::Serialize;
 use rocket_db_pools::sqlx::{query, Row};
 use rocket_db_pools::Connection;
 
 const QUERY_GET_POSTS: &str = "SELECT * FROM quotes;";
+
+#[derive(Serialize)]
+#[serde(crate = "rocket::serde")]
+struct GetPosts {
+    list: Option<Vec<Post>>,
+}
+
+#[derive(Serialize)]
+#[serde(crate = "rocket::serde")]
+struct Post {
+    sign: String,
+    quote: String,
+    date: DateTime<Local>,
+}
+
 #[get("/posts")]
 pub async fn posts(db: Connection<MainDb>) -> Json<GetPosts> {
     Json(GetPosts {
@@ -18,7 +34,7 @@ async fn query_exe(mut conn: Connection<MainDb>) -> Option<Vec<Post>> {
             let mut result: Vec<Post> = vec![];
             for row in table {
                 result.push(Post {
-                    date: row.try_get::<DateTime<Utc>, _>("date").expect("Error"),
+                    date: row.try_get::<DateTime<Local>, _>("date").expect("Error"),
                     sign: row.try_get::<String, _>("sign").expect("Error"),
                     quote: row.try_get::<String, _>("quote").expect("Error"),
                 });
