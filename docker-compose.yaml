@@ -1,13 +1,20 @@
 version: '3'
 services:
-  everyonetoday-db:
+  db:
     image: postgres
     restart: always
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_PASSWORD=1234!
-      - POSTGRES_USER=user
-      - POSTGRES_DB=posts
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_DB=${DB_NAME}
     volumes:
       - ./sql:/docker-entrypoint-initdb.d
+  app:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
