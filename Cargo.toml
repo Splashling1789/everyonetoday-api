@@ -9,5 +9,5 @@ edition = "2021"
 rocket ={version = "0.5.0-rc.3", features = ["json"]}
 rocket_db_pools = {version="0.1.0-rc.3", features = ["sqlx_postgres"]}
 dotenv = "0.15.0"
-sqlx= {version = "0.6.0", features = ["chrono"]}
+sqlx= {version = "0.6.3", features = ["chrono"]}
 chrono= {version= "0.4.28", features = ["serde"]}
