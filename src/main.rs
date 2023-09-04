@@ -6,13 +6,11 @@ mod routes;
 #[macro_use]
 extern crate rocket;
 
-use std::env;
 use rocket_db_pools::Database;
 use routes::*;
 
 #[launch]
 fn rocket() -> _ {
-    println!("{}", env::current_dir().unwrap().as_os_str().to_str().unwrap());
     let conn = connection_manager::get_connection_config();
     let figment = rocket::Config::figment().merge(("databases.main_db", conn));
     rocket::custom(figment)
