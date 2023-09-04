@@ -5,7 +5,7 @@ use rocket::serde::Serialize;
 use rocket_db_pools::sqlx::{query, Row};
 use rocket_db_pools::Connection;
 
-const QUERY_GET_POSTS: &str = "SELECT * FROM quotes WHERE date::date() = now().date;";
+const QUERY_GET_POSTS: &str = "SELECT * FROM quotes WHERE date::date = NOW()::date;";
 
 #[derive(Serialize)]
 #[serde(crate = "rocket::serde")]
