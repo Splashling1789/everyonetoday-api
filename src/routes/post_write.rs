@@ -1,13 +1,49 @@
+//! # POST: /write
+//! This route is used for "writing" a quote. The POST request should look like this:
+//! ```json
+//! {
+//!     "quote": "The thing you want to say to the world",
+//!     "sign": "Who are you"
+//! }
+//! ```
+//! # Response
+//! This route should return a success similar to this:
+//! ```
+//! {
+//!     "success": true,
+//!     "error_output": null
+//! }
+//! ```
+//! If `success` turns out to be `false`, `error_output` will start with:
+//! * `"API ERROR: ..."`, if the database responded correctly but the API didn't accept the request. This can be caused if *the sign alredy exists in today's posts* of if *it contained linebreaks*.
+//! * `"DB ERROR: ..."`, if the database did not response correctly.
+//!
+//! # Example of fail
+//! This is an example of a failed request:
+//! ```
+//! {
+//!     "quote": "I can use linebreaks here? \nOh yes I can!",
+//!     "sign": "Can \nI \nuse \nlinebreaks here?\n"
+//! }
+//! ```
+//! Response:
+//! ```
+//! {
+//!     "success": false,
+//!     "error_output": "API ERROR: linebreaks are not allowed in the 'sign' field"
+//! }
 use crate::routes::MainDb;
 use rocket::serde::json::Json;
 use rocket::serde::{Deserialize, Serialize};
 use rocket_db_pools::Connection;
 use sqlx::query;
 
+///The query for inserting a quote, checking if there is alredy another quote with that sign today.
 const QUERY_WRITE: &str = "INSERT INTO quotes (\"date\", \"sign\", \"quote\") SELECT NOW(), $1, $2 WHERE NOT EXISTS (SELECT 1 FROM quotes WHERE date::date = NOW()::date AND \"sign\"=$3);";
 
 #[derive(Deserialize)]
 #[serde(crate = "rocket::serde")]
+///It represents the data sent by the POST request at /write
 pub struct PostWriteData {
     quote: String,
     sign: String,
@@ -15,6 +51,7 @@ pub struct PostWriteData {
 
 #[derive(Serialize)]
 #[serde(crate = "rocket::serde")]
+///It represents the response given by POST /write.
 pub struct PostWriteResponse {
     success: bool,
     error_output: Option<String>,
@@ -25,6 +62,7 @@ pub async fn write(
     mut db: Connection<MainDb>,
     post: Json<PostWriteData>,
 ) -> Json<PostWriteResponse> {
+    //!It inserts to the database a proper `PostWriteData` if it is valid.
     if has_line_breaks(post.sign.clone()) {
         return Json(PostWriteResponse {
             success: false,
@@ -61,6 +99,7 @@ pub async fn write(
 }
 
 fn has_line_breaks(content: String) -> bool {
+    //!It checks if a `String` has linebreaks
     for c in content.chars() {
         if c == 0xA as char {
             return true;
