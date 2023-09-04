@@ -1,5 +1,5 @@
 //! # POST: /write
-//! This route is used for "writing" a quote. The POST request should look like this:
+//! This route is used for "writing" a quote. The POST request is [deserialized][rocket::serde::Deserialize] into a [`PostWriteData`] structure, and should look like this:
 //! ```json
 //! {
 //!     "quote": "The thing you want to say to the world",
@@ -7,8 +7,9 @@
 //! }
 //! ```
 //! # Response
-//! This route should return a success similar to this:
-//! ```
+//! This route's response use the [`PostWriteResponse`] structure serialization.
+//! It should return a success similar to this:
+//! ```json
 //! {
 //!     "success": true,
 //!     "error_output": null
@@ -20,18 +21,19 @@
 //!
 //! # Example of fail
 //! This is an example of a failed request:
-//! ```
+//! ```json
 //! {
 //!     "quote": "I can use linebreaks here? \nOh yes I can!",
 //!     "sign": "Can \nI \nuse \nlinebreaks here?\n"
 //! }
 //! ```
 //! Response:
-//! ```
+//! ```json
 //! {
 //!     "success": false,
 //!     "error_output": "API ERROR: linebreaks are not allowed in the 'sign' field"
 //! }
+//! ```
 use crate::routes::MainDb;
 use rocket::serde::json::Json;
 use rocket::serde::{Deserialize, Serialize};
