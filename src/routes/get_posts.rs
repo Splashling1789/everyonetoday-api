@@ -1,5 +1,5 @@
 use crate::routes::MainDb;
-use chrono::{DateTime, Local, Utc};
+use chrono::{DateTime, Local};
 use rocket::serde::json::Json;
 use rocket::serde::Serialize;
 use rocket_db_pools::sqlx::{query, Row};
@@ -9,7 +9,7 @@ const QUERY_GET_POSTS: &str = "SELECT * FROM quotes WHERE date::date = NOW()::da
 
 #[derive(Serialize)]
 #[serde(crate = "rocket::serde")]
-struct GetPosts {
+pub struct GetPosts {
     list: Option<Vec<Post>>,
 }
 
