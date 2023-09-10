@@ -1,5 +1,5 @@
 //# Everyone Today: A wall for everyone to leave some words anonymously
-pub const API_VERSION: &str = "development";
+pub const API_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 mod connection_manager;
 mod routes;
