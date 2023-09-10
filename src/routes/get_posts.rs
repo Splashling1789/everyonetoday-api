@@ -2,7 +2,7 @@
 //! It gets all the quotes that were posted today.
 //!
 //! # Response
-//! This route's response uses the [`PostWriteResponse`] structure [serialization][`rocket::serde::Serialize`].
+//! This route's response uses the [`GetPosts`] structure [serialization][`rocket::serde::Serialize`].
 //! The response should look like this:
 //!
 //! ```json
