@@ -19,5 +19,5 @@ fn rocket() -> _ {
             "/",
             routes![get_health::health, get_posts::posts, post_write::write],
         )
-        .register("/health", catchers![get_health::not_available])
+        .register("/", catchers![get_health::not_available])
 }
