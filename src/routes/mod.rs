@@ -1,4 +1,9 @@
 //! This module manages the routes of the API.
+//! # GET Routes:
+//! * [/health][get_health]
+//! * [/posts][get_posts]
+//! # POST Routes:
+//! * [/write][post_write]
 pub mod get_health;
 pub mod get_posts;
 pub mod post_write;
