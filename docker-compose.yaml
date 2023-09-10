@@ -12,6 +12,7 @@ services:
   app:
     build:
       dockerfile: Dockerfile
+    restart: always
     ports:
       - "8000:8000"
     depends_on:
