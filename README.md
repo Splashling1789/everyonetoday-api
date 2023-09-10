@@ -5,6 +5,23 @@
 any name, so others can get those words. The thing is, that every username can only 
 be used once every day.
 
+## Routes
+This is the list of the API routes. For more information, check the cargo docs of the project running:
+```shell
+$ cargo doc --no-deps
+```
+### GET routes
+- `/health`: check the status of the API and the postgres database.
+- `/posts`: get all posts from today.
+### POST routes
+- `/write`: posts something with a sign. Here's an example of the body of a write request:
+```json
+{
+  "quote": "I used to use Twitter, but since it has an X, I prefer this.",
+  "sign": "Twitter total hater."
+}
+```
+
 ## Deployment.
 Once you have cloned the repository, create an ``.env`` file with the following content:
 ````dotenv
