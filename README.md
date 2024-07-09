@@ -49,7 +49,7 @@ With that done, just execute:
 $ docker compose up -d
 ````
 The postgres machine will use the credentials from the `.env` file, and it will execute the query in [init-tables.sql](https://github.com/Splashling1789/everyonetoday-api/blob/master/sql/init-tables.sql) to create the corresponding tables.
-he API will connect to it through host `db` using the same credentials. 
+The API will connect to it through host `db` using the same credentials. 
 The postgres port will not be exposed at all. By default, the API port will be 8000.
 
 ###  Connecting to an existing postgres host
