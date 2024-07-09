@@ -157,5 +157,6 @@ pub fn get_connection_config() -> rocket_db_pools::Config {
         connect_timeout: connect_timeout,
         min_connections: min_connections,
         idle_timeout: idle_timeout,
+        extensions: None,
     }
 }

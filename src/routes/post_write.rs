@@ -77,7 +77,7 @@ pub async fn write(
         .bind(post.sign.clone())
         .bind(post.quote.clone())
         .bind(post.sign.clone())
-        .execute(&mut *db)
+        .execute(&mut **db)
         .await
     {
         Ok(q) => {

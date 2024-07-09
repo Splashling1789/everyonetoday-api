@@ -1,6 +1,6 @@
 [package]
 name = "everyonetoday-api"
-version = "1.0.0"
+version = "1.1.0"
 authors= ["Javier Albero"]
 description = "A public API for everyone to leave some words on it."
 repository = "https://github.com/Splashling1789/everyonetoday-api"
@@ -8,8 +8,19 @@ readme = "README.md"
 edition = "2021"
 
 [dependencies]
-rocket ={version = "0.5.0-rc.3", features = ["json"]}
-rocket_db_pools = {version="0.1.0-rc.3", features = ["sqlx_postgres"]}
+rocket ={version = "0.5.1", features = ["json"]}
 dotenv = "0.15.0"
-sqlx= {version = "0.6.3", features = ["chrono"]}
-chrono= {version= "0.4.28", features = ["serde"]}
+
+[dependencies.chrono]
+version = "0.4.38"
+default-features = false
+features = ["serde"]
+
+[dependencies.sqlx]
+version = "0.7.4"
+default-features = false
+features = ["chrono"]
+
+[dependencies.rocket_db_pools]
+version = "0.2.0"
+features = ["sqlx_postgres"]

@@ -25,11 +25,11 @@
 
 
 use crate::routes::MainDb;
-use chrono::{DateTime, Local};
 use rocket::serde::json::Json;
 use rocket::serde::Serialize;
-use rocket_db_pools::sqlx::{query, Row};
+use rocket_db_pools::sqlx::{Row, query};
 use rocket_db_pools::Connection;
+use sqlx::types::chrono::{DateTime, Local};
 
 ///The query for getting the quotes.
 const QUERY_GET_POSTS: &str = "SELECT * FROM quotes WHERE date::date = NOW()::date;";
@@ -60,7 +60,7 @@ pub async fn posts(db: Connection<MainDb>) -> Json<GetPosts> {
 
 async fn query_exe(mut conn: Connection<MainDb>) -> Option<Vec<Post>> {
     //!Executes the query [`QUERY_GET_POSTS`] and returns the list of quotes.
-    match query(QUERY_GET_POSTS).fetch_all(&mut *conn).await {
+    match query(QUERY_GET_POSTS).fetch_all(&mut **conn).await {
         Ok(table) => {
             let mut result: Vec<Post> = vec![];
             for row in table {

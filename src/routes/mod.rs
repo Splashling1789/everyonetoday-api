@@ -9,7 +9,7 @@ pub mod get_posts;
 pub mod post_write;
 
 use rocket_db_pools::Database;
-use sqlx::postgres::PgPool;
+use rocket_db_pools::sqlx::PgPool;
 
 #[derive(Database)]
 #[database("main_db")]
