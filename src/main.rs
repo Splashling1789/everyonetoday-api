@@ -1,6 +1,3 @@
-//# Everyone Today: A wall for everyone to leave some words anonymously
-pub const API_VERSION: &str = env!("CARGO_PKG_VERSION");
-
 mod connection_manager;
 mod routes;
 #[macro_use]
@@ -8,6 +5,9 @@ extern crate rocket;
 
 use rocket_db_pools::Database;
 use routes::*;
+
+/// Version of the API
+pub const API_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 #[launch]
 fn rocket() -> _ {
